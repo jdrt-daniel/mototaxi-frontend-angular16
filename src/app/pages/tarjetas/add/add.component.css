@@ -1,0 +1,100 @@
+.tarjeta {
+    height: 17cm;
+    width: 13.5cm;
+    background: #f3f3f3;
+    box-shadow: 2px 2px 6px #35353557;
+}
+
+.t-header {
+    height: 100px;
+    font-weight: bold;
+    color: #dd4343;
+    text-align: center;
+}
+
+.t-body {
+    height: 420px;
+    display: flex;
+    /* width: 80%; */
+}
+
+
+.t-body2 {
+    text-align: center;
+    line-height: .5;
+    font-weight: bold;
+
+}
+
+.t-footer {
+    height: 100px;
+    text-align: justify;
+    font-size: .7em;
+    line-height: 1em;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.h-mid {
+    height: 50%;
+}
+
+.t-content-1 {
+    width: 100px;
+    height: 100%;
+    /* background-color: red; */
+    color: #dd4343;
+    display: flex;
+    align-items: center !important;
+    margin: 0;
+}
+
+.t-content-1-1 {
+    width: 100px;
+    height: 100%;
+    align-items: center !important;
+    margin: 0;
+}
+
+.t-content-1 p {
+    transform: rotate(-90deg);
+    font-weight: 500;
+    margin: 0;
+}
+
+.t-content-2 {
+    height: 100%;
+    width: 300px;
+    text-align: center;
+    padding-top: 2em;
+    /* background-color: green; */
+}
+
+
+.bt-body {
+    height: 100dvh;
+}
+
+.footer-bg {
+    background: rgb(50, 138, 48);
+    background: -moz-linear-gradient(90deg, rgba(50, 138, 48, 1) 40%, rgba(255, 255, 255, 1) 94%);
+    background: -webkit-linear-gradient(90deg, rgba(50, 138, 48, 1) 40%, rgba(255, 255, 255, 1) 94%);
+    background: linear-gradient(90deg, rgba(50, 138, 48, 1) 40%, rgba(255, 255, 255, 1) 94%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#328a30", endColorstr="#ffffff", GradientType=1);
+}
+
+.btn-print {
+    border-radius: 30px;
+    background-color: #2e925b;
+    border-color: #2e925b;
+    box-shadow: 2px 2px 6px #35353557;
+}
+
+.btn-share {
+    border-radius: 30px;
+    background-color: #2e8692;
+    border-color: #2e8692;
+    box-shadow: 2px 2px 6px #35353557;
+}
