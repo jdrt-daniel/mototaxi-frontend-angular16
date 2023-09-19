@@ -251,11 +251,16 @@
                     </p>
                   </div>
                   <div class="col-12 text-center">
-                    <qr-code
+                    <!-- <qr-code
                       value="http://localhost:4200/conductor/{{ user.id }}"
                       size="200"
                       errorCorrectionLevel="H"
-                    ></qr-code>
+                    ></qr-code> -->
+                    <img
+                      src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{
+                        host + user.id
+                      }}"
+                    />
                     <p>* TAXI LIBRE *</p>
                   </div>
                 </div>
@@ -327,7 +332,7 @@
   </mat-card-content>
 </mat-card>
 
-<div id="print-section">
+<div id="print-section" style="display: none">
   <div
     style="
       height: 14cm;
@@ -416,12 +421,17 @@
       </div>
     </div>
     <div style="height: 4cm">
+      <!-- <qr-code
+        value="http://localhost:4200/conductor/{{ user.id }}"
+        size="200"
+        errorCorrectionLevel="H"
+      ></qr-code> -->
       <div style="text-align: center">
-        <qr-code
-          value="http://localhost:4200/conductor/{{ user.id }}"
-          size="150"
-          errorCorrectionLevel="H"
-        ></qr-code>
+        <img
+          src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{
+            host + user.id
+          }}"
+        />
       </div>
     </div>
   </div>

@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatGridListModule } from '@angular/material/grid-list';
-import * as es6printJS from 'print-js';
-// import printJS = require('print-js');
 import axios from 'axios';
 @Component({
   selector: 'app-add',
@@ -10,6 +7,7 @@ import axios from 'axios';
 })
 export class AddComponent implements OnInit {
   user = {} as any;
+  host = 'http://localhost:4200/conductor/';
   loading = false;
 
   async ngOnInit() {
@@ -29,9 +27,5 @@ export class AddComponent implements OnInit {
     } finally {
       this.loading = false;
     }
-  }
-
-  printTest() {
-    es6printJS('print-section', 'html');
   }
 }
