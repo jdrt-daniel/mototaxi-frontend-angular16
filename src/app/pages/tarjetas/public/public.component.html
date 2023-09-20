@@ -250,6 +250,16 @@
                           {{ user.tipo_sangre }}
                         </p>
                       </div>
+                      <p style="font-weight: 600 !important; margin: 10px 0px">
+                        VÁLIDO :
+                        <br />
+                        {{
+                          "DEL " +
+                            parseDate(user.tarjeta.fecha_inicio) +
+                            " AL " +
+                            parseDate(user.tarjeta.fecha_fin)
+                        }}
+                      </p>
                     </div>
                   </div>
                 </div>

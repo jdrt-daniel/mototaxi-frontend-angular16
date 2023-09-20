@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import * as moment from 'moment';
+import 'moment/locale/es';
+moment().locale('es');
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -7,7 +10,7 @@ import axios from 'axios';
 })
 export class AddComponent implements OnInit {
   user = {} as any;
-  host = 'http://localhost:4200/conductor/';
+  host = 'http://localhost:4200/tarjeta/';
   loading = false;
 
   async ngOnInit() {
@@ -18,14 +21,24 @@ export class AddComponent implements OnInit {
     this.loading = true;
     try {
       this.loading = true;
-      const { data } = await axios.get(
-        'http://localhost:3000/api/conductores/39'
+      const { data: tarjeta } = await axios.get(
+        'http://localhost:3000/api/tarjetas/12'
       );
-      this.user = data;
+      const { data: conductor } = await axios.get(
+        `http://localhost:3000/api/tarjetas/12/conductor`
+      );
+      this.user = {
+        ...conductor,
+        tarjeta,
+      };
     } catch (error) {
       console.log(error);
     } finally {
       this.loading = false;
     }
+  }
+
+  parseDate(date: string) {
+    return moment(date).format('L');
   }
 }

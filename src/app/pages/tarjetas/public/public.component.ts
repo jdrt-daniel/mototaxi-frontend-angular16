@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import axios from 'axios';
 
+import * as moment from 'moment';
+import 'moment/locale/es';
+moment().locale('es');
+
 @Component({
   selector: 'app-public',
   templateUrl: './public.component.html',
@@ -22,15 +26,24 @@ export class PublicComponent {
       this.getConductor(this.id);
     });
   }
+  parseDate(date: string) {
+    return moment(date).format('L');
+  }
 
   async getConductor(id: number) {
     this.loading = true;
     try {
       this.loading = true;
-      const { data } = await axios.get(
-        `http://localhost:3000/api/conductores/${id}`
+      const { data: tarjeta } = await axios.get(
+        `http://localhost:3000/api/tarjetas/${id}`
       );
-      this.user = data;
+      const { data: conductor } = await axios.get(
+        `http://localhost:3000/api/tarjetas/${id}/conductor`
+      );
+      this.user = {
+        ...conductor,
+        tarjeta,
+      };
     } catch (error) {
       console.log(error);
     } finally {

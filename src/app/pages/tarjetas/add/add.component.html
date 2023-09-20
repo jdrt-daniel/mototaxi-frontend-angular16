@@ -258,10 +258,19 @@
                     ></qr-code> -->
                     <img
                       src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{
-                        host + user.id
+                        host + user.tarjeta.id
                       }}"
                     />
-                    <p>* TAXI LIBRE *</p>
+                    <p>
+                      VÁLIDO :
+                      <br />
+                      {{
+                        "DEL " +
+                          parseDate(user.tarjeta.fecha_inicio) +
+                          " AL " +
+                          parseDate(user.tarjeta.fecha_fin)
+                      }}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -429,9 +438,19 @@
       <div style="text-align: center">
         <img
           src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{
-            host + user.id
+            host + user.tarjeta.id
           }}"
         />
+        <p>
+          VALIDO :
+          <br />
+          {{
+            "DEL " +
+              parseDate(user.tarjeta.fecha_inicio) +
+              " AL " +
+              parseDate(user.tarjeta.fecha_fin)
+          }}
+        </p>
       </div>
     </div>
   </div>
