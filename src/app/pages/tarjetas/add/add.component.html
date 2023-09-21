@@ -341,18 +341,19 @@
   </mat-card-content>
 </mat-card>
 
-<div id="print-section" style="display: none">
+<div id="print-section" style="display: block; font-family: arial">
   <div
     style="
       height: 14cm;
       width: 10.5cm;
       border: 1px solid #efefef;
       font-family: Arial, Helvetica, sans-serif;
+      position: relative;
     "
   >
     <div style="height: 1.8cm"></div>
-    <div style="height: 5cm; display: flex">
-      <div style="width: 3cm; padding: 0.7em">
+    <div style="height: 4cm; display: flex">
+      <div style="width: 2.5cm; padding: 0.2em">
         <p
           style="text-align: center; font-weight: bold !important; margin: 0px"
         >
@@ -363,6 +364,7 @@
             font-size: 5em;
             text-align: center;
             font-weight: bold !important;
+            font-family: arial;
             margin: 0px;
           "
         >
@@ -373,27 +375,10 @@
         <img
           src="{{ user.fotografia }}"
           alt=""
-          style="
-            width: 3.5cm;
-            height: 3.5cm;
-            border-radius: 10px;
-            box-shadow: 0px 0px 5px #9a9c9a;
-          "
+          style="width: 3.8cm; height: 3.8cm; border-radius: 10px"
         />
-        <p
-          style="
-            font-weight: bold !important;
-            font-size: 1em;
-            line-height: 1em;
-            text-align: center;
-            margin-top: 10px;
-          "
-        >
-          {{ user.nombres }} <br />
-          {{ user.paterno }} {{ user.materno }}
-        </p>
       </div>
-      <div style="width: 3cm; padding: 0.7em">
+      <div style="width: 2.7cm; padding: 0.7em">
         <p
           style="
             font-size: 0.5em;
@@ -422,35 +407,54 @@
             font-size: 2em;
             text-align: center;
             font-weight: bold !important;
-            margin: 20px;
+            margin-top: 5px;
           "
         >
           {{ user.tipo_sangre }}
         </p>
       </div>
     </div>
-    <div style="height: 4cm">
-      <!-- <qr-code
-        value="http://localhost:4200/conductor/{{ user.id }}"
-        size="200"
-        errorCorrectionLevel="H"
-      ></qr-code> -->
+    <div style="margin-top: 0.3cm; text-align: center; width: 9cm">
+      <p
+        style="
+          font-weight: bold !important;
+          font-size: 1em;
+          text-align: center;
+          margin: 0px;
+        "
+      >
+        {{ user.nombres }}
+      </p>
+      <p
+        style="
+          font-weight: bold !important;
+          font-size: 1em;
+          text-align: center;
+          margin: 0px;
+        "
+      >
+        {{ user.paterno }} {{ user.materno }}
+      </p>
+    </div>
+    <div style="height: 4cm; width: 9cm">
       <div style="text-align: center">
-        <img
-          src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{
-            host + user.tarjeta.id
-          }}"
-        />
-        <p>
-          VALIDO :
-          <br />
-          {{
-            "DEL " +
-              parseDate(user.tarjeta.fecha_inicio) +
-              " AL " +
-              parseDate(user.tarjeta.fecha_fin)
-          }}
-        </p>
+        <div style="position: absolute; top: 48%; left: 20%; z-index: -1">
+          <img
+            src="https://chart.googleapis.com/chart?chs=180x180&cht=qr&chl=http://localhost/ajio/ajio"
+          />
+        </div>
+        <div style="margin-top: 150px">
+          <p style="margin: 0px">* MOTOTAXI *</p>
+          <p style="margin: 0px">
+            VALIDO :
+            {{
+              "DEL " +
+                parseDate(user.tarjeta.fecha_inicio) +
+                " AL " +
+                parseDate(user.tarjeta.fecha_fin)
+            }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
